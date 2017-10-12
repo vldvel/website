@@ -6,8 +6,9 @@
 		<script src="../dist/jquery.Dragging.min.js"></script>
 	</head>
 	<body>
-		<div id="element1" style="width: 300px; height: 300px; margin: 50px auto; background: green;"></div>
-		<div id="element2" style="width: 300px; height: 300px; margin: 50px auto; background: red;"></div>
+		<div id="element1" style="width: 300px; height: 300px; margin: 50px auto; background: green; border-radius: 100%;"></div>
+		<div id="element2" style="width: 200px; height: 400px; margin: 50px auto; background: red; border-radius: 100% 100% 0 0;"></div>
+		<div id="element3" style="width: 400px; height: 100px; margin: 50px auto; background: blue;"></div>
 		
 		<script>
 			$( function() {
@@ -15,7 +16,10 @@
 					speed: 200
 				});
 				$('#element2').Dragging({
-					speed: 400
+					speed: 300
+				});
+				$('#element3').Dragging({
+					speed: 250
 				});
 			} );
 		</script>

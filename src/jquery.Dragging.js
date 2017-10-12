@@ -43,7 +43,7 @@
 					}
 				}
 				thisElement.mousedown(function( event ) {
-					thisElement.css({"transition": "none"});
+					thisElement.css({"transition": "none", "z-index": "99999"});
 					startPoint = [event.pageX, event.pageY];
 					$( "body" ).mousemove(function( event ) {
 						calculateNewCoords(0, 2, event.pageX, thisElement.width());
@@ -53,8 +53,7 @@
 				});
 				thisElement.mouseup(function() {
 					$( "body" ).off( "mousemove" );
-					thisElement.css({"transition": "all 0.5s cubic-bezier(.44,.35,.1,2.19)"});
-					thisElement.css({"transform": "matrix(1, 0, 0, 1, 0, 0)"});
+					thisElement.css({"transition": "all 0.5s cubic-bezier(.44,.35,.1,2.19)", "transform": "matrix(1, 0, 0, 1, 0, 0)", "z-index": "1"});
 				});
 				return this;
 			}
