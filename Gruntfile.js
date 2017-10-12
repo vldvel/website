@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
 				" *  <%= pkg.description %>\n" +
 				" *  <%= pkg.homepage %>\n" +
 				" *\n" +
-				" *  Made by <%= pkg.author.name %>\n" +
+				" *  Made by Vlad Stepanov\n" +
 				" *  Under <%= pkg.license %> License\n" +
 				" */\n"
 		},
