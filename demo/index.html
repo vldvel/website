@@ -35,12 +35,20 @@
 			header > a:hover {
 				text-decoration: none;
 			}
+			#dragg-text {
+				position: absolute;
+				top: 200px;
+				left: 80px;
+				color: #d92b2b;
+				font-size: 40px;
+			}
 			#element1 {
 				width: 300px;
 				height: 300px;
 				margin: 180px auto 50px;
 				background: #708090;
 				border-radius: 100%;
+				cursor: grab;
 			}
 			#element1 .content {
 				padding: 78px 0 0 98px;
@@ -51,6 +59,7 @@
 				height: 400px;
 				margin: 50px auto;
 				background: #BC8F8F;
+				cursor: grab;
 				border-radius: 100% 100% 0 0;
 			}
 			#element2 .content {
@@ -61,6 +70,7 @@
 				width: 400px;
 				height: 200px;
 				margin: 50px auto;
+				cursor: grab;
 				background: #5F9EA0;
 			}
 			#element3 .content {
@@ -71,11 +81,18 @@
 				width: 400px;
 				height: 400px;
 				margin: 50px auto;
+				cursor: grab;
 				background: #BDB76B;
 			}
 			#element4 .content {
 				padding: 82px 0 0 128px;
 				color: white;
+			}
+			#element1:active,
+			#element2:active,
+			#element3:active,
+			#element4:active {
+				cursor: grabbing;
 			}
 		</style>
 	</head>
@@ -86,6 +103,9 @@
 			<a href="https://github.com/vldvel/Dragging.js">GitHub</a>
 		</header>
 		<main>
+			<div id="dragg-text">
+				Try to dragg THEM!
+			</div>
 			<div id="element1">
 				<div class="content">
 					<p>speed: 100</p>
