@@ -29,11 +29,20 @@ A lightweight **jQuery plugin** that transforms any HTML block into a darggable 
 	$('#element').Dragging({
 		speed: 300
 	});
+
+	// Or with all properties
+	$('#element').Dragging({
+		speed: 300,
+		vertical: true,
+		horizontal: true
+	});
 	```
 
 ## Options
 
-**speed** any number (default 300)
+* **speed** any number (default 300)
+* **vertical** true or false (default true)
+* **horizontal** true or false (default true)
 
 ## Requires
 

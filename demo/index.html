@@ -4,23 +4,69 @@
 		<title>Dragging.js</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="../src/jquery.Dragging.js"></script>
+		<style>
+			html, body {
+				overflow-x: hidden;
+				margin: 0;
+    			padding: 0;
+			}
+			header {
+				padding: 30px;
+				background: purple;
+			}
+			header > h1 {
+				text-align: center;
+				font-size: 36px;
+				color: yellow;
+			}
+		</style>
 	</head>
 	<body>
-		<div id="element1" style="width: 300px; height: 300px; margin: 50px auto; background: green; border-radius: 100%;"></div>
-		<div id="element2" style="width: 200px; height: 400px; margin: 50px auto; background: red; border-radius: 100% 100% 0 0;"></div>
-		<div id="element3" style="width: 400px; height: 100px; margin: 50px auto; background: blue;"></div>
+
+		<header>
+			<h1>Dragging.js</h1>
+		</header>
+		<main>
+			<div id="element1" style="width: 300px; height: 300px; margin: 50px auto; background: green; border-radius: 100%;">
+				<p>speed: 100</p>
+				<p>horizontal: true</p>
+				<p>vertical: true</p>
+			</div>
+			<div id="element2" style="width: 200px; height: 400px; margin: 50px auto; background: red; border-radius: 100% 100% 0 0;">
+				<p>speed: 400</p>
+				<p>horizontal: true</p>
+				<p>vertical: false</p>
+			</div>
+			<div id="element3" style="width: 400px; height: 100px; margin: 50px auto; background: blue;">
+				<p>speed: 600</p>
+				<p>horizontal: false</p>
+				<p>vertical: true</p>
+			</div>
+			<div id="element4" style="width: 400px; height: 400px; margin: 50px auto; background: black;">
+				<div id="element5" style="width: 200px; height: 200px; margin: 50px auto; background: white;">
+					<p>default properties</p>
+				</div>
+			</div>
+		</main>
+		
 		
 		<script>
 			$( function() {
+				$('header').Dragging({
+					horizontal: false
+				});
 				$('#element1').Dragging({
-					speed: 200
+					speed: 100
 				});
 				$('#element2').Dragging({
-					speed: 300
+					speed: 400,
+					vertical: false
 				});
 				$('#element3').Dragging({
-					speed: 250
+					speed: 600,
+					horizontal: false
 				});
+				$('#element5').Dragging();
 			} );
 		</script>
 	</body>

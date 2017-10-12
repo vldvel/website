@@ -12,7 +12,9 @@
 
 		var pluginName = "Dragging",
 			defaults = {
-				speed: 300
+				speed: 300,
+				vertical: true,
+				horizontal: true
 			};
 
 		function Plugin ( element, options ) {
@@ -34,6 +36,9 @@
 					newPoint = [1, 1, 0, 0],
 					startPoint = [],
 					isDragging = false;
+				if (isNaN(parseFloat(settings.speed)) && !isFinite(settings.speed)) {
+					settings.speed = 300;
+				}
 				function calculateNewCoords(num1, num2, pageAl, elementProp) {
 					if (startPoint[num1] > centerElement[num1]) {
 						newPoint[num1] = 1 - (startPoint[num1] - pageAl) / settings.speed;
@@ -64,8 +69,12 @@
 					startPoint = [event.pageX, event.pageY];
 					isDragging = true;
 					$( "body" ).mousemove(function( event ) {
-						calculateNewCoords(0, 2, event.pageX, thisElement.width());
-						calculateNewCoords(1, 3, event.pageY, thisElement.height());
+						if (settings.horizontal) {
+							calculateNewCoords(0, 2, event.pageX, thisElement.width());
+						}
+						if (settings.vertical) {
+							calculateNewCoords(1, 3, event.pageY, thisElement.height());
+						}						
 						thisElement.css({"transform": "matrix(" + newPoint[0] + ", 0, 0, " +  newPoint[1] + ", " + newPoint[2] + ", " + newPoint[3] + ")"});
 					});
 				});
