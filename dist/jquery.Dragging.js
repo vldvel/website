@@ -3,7 +3,7 @@
  *  A very small and simple plugin for dragging animation.
  *  https://vldvel.github.io/Dragging.js/demo/index.html
  *
- *  Made by 
+ *  Made by Vlad Stepanov
  *  Under MIT License
  */
 ;( function( $, window, document, undefined ) {
