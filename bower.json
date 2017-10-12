@@ -1,0 +1,28 @@
+{
+  "name": "Dragging.js",
+  "license": "MIT",
+  "authors": [
+    "Vlad Stepanov <vldvel@rambler.ru>"
+  ],
+  "description": "A very small and simple plugin for dragging animation.",
+  "homepage": "https://vldvel.github.io/dragging-js/",
+  "keywords": [
+    "jquery",
+    "plugin",
+    "jquery-plugin",
+    "dragging",
+    "dragging-plugin"
+  ],
+  "main": "src/jquery.Dragging.js",
+  "dependencies": {
+    "jquery": "1"
+  },
+  "ignore": [
+    "npm-debug.log",
+    "bower_components",
+    "node_modules",
+    "**/.*",
+    "test",
+    "tests"
+  ]
+}

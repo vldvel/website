@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dragging.js</title>
+		<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="../src/jquery.Dragging.js"></script>
+	</head>
+	<body>
+		<div id="element1" style="width: 300px; height: 300px; margin: 50px auto; background: green;"></div>
+		<div id="element2" style="width: 300px; height: 300px; margin: 50px auto; background: red;"></div>
+		
+		<script>
+			$( function() {
+				$('#element1').Dragging({
+					speed: 200
+				});
+				$('#element2').Dragging({
+					speed: 400
+				});
+			} );
+		</script>
+	</body>
+</html>
