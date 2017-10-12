@@ -10,13 +10,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dragging-js.git"
+    "url": "git+https://vldvel.github.io/Dragging.js.git"
   },
   "bugs": {
-    "url": "https://github.com/jquery-boilerplate/jquery-boilerplate/issues"
+    "url": "https://vldvel.github.io/Dragging.js/demo/index.html"
   },
   "author": "Vlad Stepanov <vldvel@rambler.ru> (https://github.com/vldvel)",
-  "homepage": "https://vldvel.github.io/dragging-js/",
+  "homepage": "https://vldvel.github.io/Dragging.js/demo/index.html",
   "contributors": [
     "Vlad Stepanov <vldvel@rambler.ru> (https://github.com/vldvel)"
   ],
