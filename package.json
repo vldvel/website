@@ -1,11 +1,13 @@
 {
   "name": "dragging.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A very small and simple plugin for dragging animation.",
   "keywords": [
     "jquery-plugin",
+    "dragging-plugin",
+    "dragging-js",
     "jquery",
-    "boilerplate",
+    "dragging",
     "plugins"
   ],
   "repository": {
@@ -45,7 +47,7 @@
     "jscs": "jscs src",
     "test": "npm run jscs && grunt travis --verbose"
   },
-  "main": "Gruntfile.js",
+  "main": "src/jquery.Dragging.js",
   "directories": {
     "test": "test"
   }
