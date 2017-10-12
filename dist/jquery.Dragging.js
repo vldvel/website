@@ -51,15 +51,16 @@
 						}
 					}
 				}
-				function stopDragging() {
+				var stopDragging = function () {
+					console.log("stop:" + isDragging);
 					if (isDragging) {
 						$( "body" ).off( "mousemove" );
-						thisElement.css({"transition": "all 0.5s cubic-bezier(.44,.35,.1,2.19)", "transform": "matrix(1, 0, 0, 1, 0, 0)", "z-index": "1"});
+						thisElement.css({"transition": "all 0.5s cubic-bezier(.44,.35,.1,2.19)", "transform": "matrix(1, 0, 0, 1, 0, 0)", "z-index": "1", "user-select": "unset"});
 						stopDragging = false;
 					}
 				}
 				thisElement.mousedown(function( event ) {
-					thisElement.css({"transition": "none", "z-index": "99999"});
+					thisElement.css({"transition": "none", "z-index": "99999", "user-select": "none"});
 					startPoint = [event.pageX, event.pageY];
 					isDragging = true;
 					$( "body" ).mousemove(function( event ) {
@@ -68,9 +69,8 @@
 						thisElement.css({"transform": "matrix(" + newPoint[0] + ", 0, 0, " +  newPoint[1] + ", " + newPoint[2] + ", " + newPoint[3] + ")"});
 					});
 				});
-				$( "body" ).mouseup(function() {
-					stopDragging();
-				});
+				thisElement.mouseup(stopDragging);
+				$( "body" ).mouseup(stopDragging);
 				return this;
 			}
 		} );
