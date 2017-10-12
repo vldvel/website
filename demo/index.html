@@ -3,7 +3,7 @@
 	<head>
 		<title>Dragging.js</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script src="../src/jquery.Dragging.js"></script>
+		<script src="../dist/jquery.Dragging.js"></script>
 		<style>
 			html, body {
 				overflow-x: hidden;
@@ -43,9 +43,7 @@
 				<p>vertical: true</p>
 			</div>
 			<div id="element4" style="width: 400px; height: 400px; margin: 50px auto; background: black;">
-				<div id="element5" style="width: 200px; height: 200px; margin: 50px auto; background: white;">
-					<p>default properties</p>
-				</div>
+				<p>default properties</p>
 			</div>
 		</main>
 		
@@ -66,7 +64,7 @@
 					speed: 600,
 					horizontal: false
 				});
-				$('#element5').Dragging();
+				$('#element4').Dragging();
 			} );
 		</script>
 	</body>
