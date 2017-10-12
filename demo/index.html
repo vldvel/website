@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Dragging.js</title>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script src="../dist/jquery.Dragging.js"></script>
 		<style>
@@ -9,15 +10,72 @@
 				overflow-x: hidden;
 				margin: 0;
     			padding: 0;
+				font-family: 'Raleway', sans-serif;
 			}
 			header {
-				padding: 30px;
-				background: purple;
+				padding: 10px;
+				background: #606060;
+				position: fixed;
+				width: 100%;
+				z-index: 99999999999;
 			}
 			header > h1 {
 				text-align: center;
 				font-size: 36px;
-				color: yellow;
+				color: white;
+			}
+			header > a {
+				position: absolute;
+				top: 42px;
+				right: 80px;
+				color: #d92b2b;
+				font-size: 20px;
+				text-decoration: underline;
+			}
+			header > a:hover {
+				text-decoration: none;
+			}
+			#element1 {
+				width: 300px;
+				height: 300px;
+				margin: 180px auto 50px;
+				background: #708090;
+				border-radius: 100%;
+			}
+			#element1 .content {
+				padding: 78px 0 0 98px;
+				color: white;
+			}
+			#element2 {
+				width: 200px;
+				height: 400px;
+				margin: 50px auto;
+				background: #BC8F8F;
+				border-radius: 100% 100% 0 0;
+			}
+			#element2 .content {
+				padding: 135px 0 0 45px;
+				color: white;
+			}
+			#element3 {
+				width: 400px;
+				height: 200px;
+				margin: 50px auto;
+				background: #5F9EA0;
+			}
+			#element3 .content {
+				padding: 37px 0 0 137px;
+				color: white;
+			}
+			#element4 {
+				width: 400px;
+				height: 400px;
+				margin: 50px auto;
+				background: #BDB76B;
+			}
+			#element4 .content {
+				padding: 82px 0 0 128px;
+				color: white;
 			}
 		</style>
 	</head>
@@ -25,25 +83,34 @@
 
 		<header>
 			<h1>Dragging.js</h1>
+			<a href="https://github.com/vldvel/Dragging.js">GitHub</a>
 		</header>
 		<main>
-			<div id="element1" style="width: 300px; height: 300px; margin: 50px auto; background: green; border-radius: 100%;">
-				<p>speed: 100</p>
-				<p>horizontal: true</p>
-				<p>vertical: true</p>
+			<div id="element1">
+				<div class="content">
+					<p>speed: 100</p>
+					<p>horizontal: true</p>
+					<p>vertical: true</p>
+				</div>
 			</div>
-			<div id="element2" style="width: 200px; height: 400px; margin: 50px auto; background: red; border-radius: 100% 100% 0 0;">
-				<p>speed: 400</p>
-				<p>horizontal: true</p>
-				<p>vertical: false</p>
+			<div id="element2">
+				<div class="content">
+					<p>speed: 400</p>
+					<p>horizontal: true</p>
+					<p>vertical: false</p>
+				</div>
 			</div>
-			<div id="element3" style="width: 400px; height: 100px; margin: 50px auto; background: blue;">
-				<p>speed: 600</p>
-				<p>horizontal: false</p>
-				<p>vertical: true</p>
+			<div id="element3">
+				<div class="content">
+					<p>speed: 600</p>
+					<p>horizontal: false</p>
+					<p>vertical: true</p>
+				</div>
 			</div>
-			<div id="element4" style="width: 400px; height: 400px; margin: 50px auto; background: black;">
-				<p>default properties</p>
+			<div id="element4">
+				<div class="content">
+					<p>default properties</p>
+				</div>
 			</div>
 		</main>
 		
