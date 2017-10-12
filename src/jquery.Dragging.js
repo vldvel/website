@@ -24,7 +24,8 @@
 					elOffset = thisElement.offset(),
 					centerElement = [elOffset.left + thisElement.width() / 2, elOffset.top + thisElement.height() / 2],
 					newPoint = [1, 1, 0, 0],
-					startPoint = [];
+					startPoint = [],
+					isDragging = false;
 				function calculateNewCoords(num1, num2, pageAl, elementProp) {
 					if (startPoint[num1] > centerElement[num1]) {
 						newPoint[num1] = 1 - (startPoint[num1] - pageAl) / settings.speed;
@@ -42,18 +43,25 @@
 						}
 					}
 				}
+				function stopDragging() {
+					if (isDragging) {
+						$( "body" ).off( "mousemove" );
+						thisElement.css({"transition": "all 0.5s cubic-bezier(.44,.35,.1,2.19)", "transform": "matrix(1, 0, 0, 1, 0, 0)", "z-index": "1"});
+						stopDragging = false;
+					}
+				}
 				thisElement.mousedown(function( event ) {
 					thisElement.css({"transition": "none", "z-index": "99999"});
 					startPoint = [event.pageX, event.pageY];
+					isDragging = true;
 					$( "body" ).mousemove(function( event ) {
 						calculateNewCoords(0, 2, event.pageX, thisElement.width());
 						calculateNewCoords(1, 3, event.pageY, thisElement.height());
 						thisElement.css({"transform": "matrix(" + newPoint[0] + ", 0, 0, " +  newPoint[1] + ", " + newPoint[2] + ", " + newPoint[3] + ")"});
 					});
 				});
-				thisElement.mouseup(function() {
-					$( "body" ).off( "mousemove" );
-					thisElement.css({"transition": "all 0.5s cubic-bezier(.44,.35,.1,2.19)", "transform": "matrix(1, 0, 0, 1, 0, 0)", "z-index": "1"});
+				$( "body" ).mouseup(function() {
+					stopDragging();
 				});
 				return this;
 			}
