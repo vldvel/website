@@ -5,6 +5,7 @@ A lightweight **jQuery plugin** that transforms any HTML block into a darggable 
 ## Example
 
 [See demo!](https://vldvel.github.io/Dragging.js/demo/index.html)
+[Or try it on codepen] (https://codepen.io/vldvel/project/editor/AOPwPB)
 
 ## Quick start
 
