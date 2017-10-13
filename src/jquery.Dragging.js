@@ -6,7 +6,8 @@
 			defaults = {
 				speed: 300,
 				vertical: true,
-				horizontal: true
+				horizontal: true,
+				rotate: false
 			};
 
 		function Plugin ( element, options ) {
@@ -27,8 +28,15 @@
 					centerElement = [elOffset.left + thisElement.width() / 2, elOffset.top + thisElement.height() / 2],
 					newPoint = [1, 1, 0, 0],
 					startPoint = [],
-					isDragging = false;
+					isDragging = false,
+					elementCss = {
+						transition: thisElement.css("transition") || "all 0.5s cubic-bezier(.44,.35,.1,2.19)",
+						transform: thisElement.css("transform") || "matrix(1, 0, 0, 1, 0, 0)",
+						zIndex: thisElement.css("z-index") || "unset",
+						userSelect: thisElement.css("user-select") || "unset"
+					};
 				if (isNaN(parseFloat(settings.speed)) && !isFinite(settings.speed)) {
+					console.error('speed should be number');
 					settings.speed = 300;
 				}
 				function calculateNewCoords(num1, num2, pageAl, elementProp) {
@@ -49,10 +57,9 @@
 					}
 				}
 				var stopDragging = function () {
-					console.log("stop:" + isDragging);
 					if (isDragging) {
 						$( "body" ).off( "mousemove" );
-						thisElement.css({"transition": "all 0.5s cubic-bezier(.44,.35,.1,2.19)", "transform": "matrix(1, 0, 0, 1, 0, 0)", "z-index": "1", "user-select": "unset"});
+						thisElement.css({"transition": elementCss.transition, "transform": elementCss.transform, "z-index": elementCss.zIndex, "user-select": elementCss.userSelect});
 						stopDragging = false;
 					}
 				}
@@ -66,8 +73,12 @@
 						}
 						if (settings.vertical) {
 							calculateNewCoords(1, 3, event.pageY, thisElement.height());
-						}						
-						thisElement.css({"transform": "matrix(" + newPoint[0] + ", 0, 0, " +  newPoint[1] + ", " + newPoint[2] + ", " + newPoint[3] + ")"});
+						}
+						if (settings.rotate) {
+							thisElement.css({"transform": "matrix(" + newPoint[0] + ", " +  newPoint[2]/100 + ", " + newPoint[3]/100 + ", " + newPoint[1] + ", " + newPoint[2] + ", " + newPoint[3] + ")"});							
+						} else {
+							thisElement.css({"transform": "matrix(" + newPoint[0] + ", 0, 0, " +  newPoint[1] + ", " + newPoint[2] + ", " + newPoint[3] + ")"});						
+						}
 					});
 				});
 				thisElement.mouseup(stopDragging);

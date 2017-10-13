@@ -27,16 +27,28 @@ A lightweight **jQuery plugin** that transforms any HTML block into a darggable 
 	```javascript
 	$('#element').Dragging();
 
-	// Or with speed
+	// speed
 	$('#element').Dragging({
 		speed: 300
 	});
 
-	// Or with all properties
+	// vertical horizontal
+	$('#element').Dragging({
+		vertical: true,
+		horizontal: true
+	});
+
+	// rotate
+	$('#element').Dragging({
+		rotate: false
+	});
+
+	// all together
 	$('#element').Dragging({
 		speed: 300,
 		vertical: true,
-		horizontal: true
+		horizontal: true,
+		rotate: false
 	});
 	```
 
@@ -45,6 +57,7 @@ A lightweight **jQuery plugin** that transforms any HTML block into a darggable 
 * **speed** any number (default 300)
 * **vertical** true or false (default true)
 * **horizontal** true or false (default true)
+* **rotate** true or false (default false)
 
 ## Requires
 
