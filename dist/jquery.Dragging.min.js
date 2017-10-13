@@ -1,5 +1,5 @@
 /*
- *  dragging.js - v0.2.1
+ *  dragging.js - v1.0.0
  *  A very small and simple plugin for dragging animation.
  *  https://vldvel.github.io/Dragging.js/demo/index.html
  *
