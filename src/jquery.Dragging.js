@@ -30,7 +30,7 @@
 					startPoint = [],
 					isDragging = false,
 					elementCss = {
-						transition: thisElement.css("transition") || "all 0.5s cubic-bezier(.44,.35,.1,2.19)",
+						transition: thisElement.css("transition") || "unset",
 						transform: thisElement.css("transform") || "matrix(1, 0, 0, 1, 0, 0)",
 						zIndex: thisElement.css("z-index") || "unset",
 						userSelect: thisElement.css("user-select") || "unset"
@@ -59,7 +59,7 @@
 				var stopDragging = function () {
 					if (isDragging) {
 						$( "body" ).off( "mousemove" );
-						thisElement.css({"transition": elementCss.transition, "transform": elementCss.transform, "z-index": elementCss.zIndex, "user-select": elementCss.userSelect});
+						thisElement.css({"transition": "all 0.5s cubic-bezier(.44,.35,.1,2.19)", "transform": elementCss.transform, "z-index": elementCss.zIndex, "user-select": elementCss.userSelect});
 						stopDragging = false;
 					}
 				}

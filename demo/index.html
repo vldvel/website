@@ -35,47 +35,43 @@
 			header > a:hover {
 				text-decoration: none;
 			}
-			#dragg-text {
-				position: absolute;
-				top: 200px;
-				left: 80px;
-				color: #d92b2b;
-				font-size: 40px;
+			.content {
+				padding: 10px;
+				overflow: hidden;
+			}
+			#element0 {
+				width: 80vw;
+				margin: 180px auto 50px;
 			}
 			#element1 {
-				width: 300px;
-				height: 300px;
-				margin: 180px auto 50px;
+				width: 400px;
+				height: 100px;
+				margin: 50px auto;
 				background: #708090;
-				border-radius: 100%;
 				cursor: grab;
 			}
 			#element1 .content {
-				padding: 78px 0 0 98px;
-				color: white;
+				height: 70px;
 			}
 			#element2 {
-				width: 200px;
-				height: 400px;
+				width: 400px;
+				height: 200px;
 				margin: 50px auto;
 				background: #BC8F8F;
 				cursor: grab;
-				border-radius: 100% 100% 0 0;
 			}
 			#element2 .content {
-				padding: 135px 0 0 45px;
-				color: white;
+				height: 170px;
 			}
 			#element3 {
 				width: 400px;
-				height: 200px;
+				height: 300px;
 				margin: 50px auto;
 				cursor: grab;
 				background: #5F9EA0;
 			}
 			#element3 .content {
-				padding: 37px 0 0 137px;
-				color: white;
+				height: 270px;
 			}
 			#element4 {
 				width: 400px;
@@ -85,14 +81,32 @@
 				background: #BDB76B;
 			}
 			#element4 .content {
-				padding: 82px 0 0 128px;
-				color: white;
+				height: 370px;
 			}
 			#element1:active,
 			#element2:active,
 			#element3:active,
 			#element4:active {
 				cursor: grabbing;
+			}
+
+			pre {
+				background: rgba(255,255,255,0.65);
+				padding: 0.5em;
+				margin: 0;
+				font-size: 120%;
+				line-height: 1.35em;
+				color: #606060;
+				height: 100%;
+			}
+			.code_tag {
+				color: #d92b2b;
+			}
+			.code_attribute {
+				color: #58a907;
+			}
+			.code_value {
+				color: #2b82d9;
 			}
 		</style>
 	</head>
@@ -103,25 +117,81 @@
 			<a href="https://github.com/vldvel/Dragging.js">GitHub</a>
 		</header>
 		<main>
+			<div id="element0">
+				<div class="content">
+					<h2>About</h2>
+					<p>Dragging.js is a jQuery plugin for adding simple dragging animation to HTML elements.</p>
+					<h2>Usage</h2>
+					<ol>
+						<li>
+							Include jQuery:
+							<pre>
+								<code>
+&lt;<span class="code_attribute">script</span> <span class="code_tag">src</span>=<span class="code_value">"http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"</span>&gt;&lt;/<span class="code_attribute">script</span>&gt;
+								</code>
+							</pre>
+						</li>
+						<li>
+							Include Dragging.js:
+							<pre>
+								<code>
+&lt;<span class="code_attribute">script</span> <span class="code_tag">src</span>=<span class="code_value">"dist/jquery.Dragging.min.js"</span>&gt;&lt;/<span class="code_attribute">script</span>&gt;
+								</code>
+							</pre>
+						</li>
+						<li>
+							Call the Dragging.js:
+							<pre>
+								<code>
+<span class="code_attribute">$</span>(<span class="code_tag">'#element'</span>).<span class="code_attribute">Dragging</span>();
+								</code>
+							</pre>
+						</li>
+					</ol>
+				</div>
+			</div>
 			<div id="element1">
 				<div class="content">
-					<p>speed: 100</p>
+					<pre>
+						<code>
+<span class="code_attribute">$</span>(<span class="code_tag">'#element1'</span>).<span class="code_attribute">Dragging</span>();
+						</code>
+					</pre>
 				</div>
 			</div>
 			<div id="element2">
 				<div class="content">
-					<p>rotate: true</p>
+					<pre>
+						<code>
+<span class="code_attribute">$</span>(<span class="code_tag">'#element2'</span>).<span class="code_attribute">Dragging</span>({
+	<span class="code_value">horizontal</span>: <span class="code_tag">false</span>
+});
+						</code>
+					</pre>
 				</div>
 			</div>
 			<div id="element3">
 				<div class="content">
-					<p>speed: 600</p>
-					<p>horizontal: false</p>
+					<pre>
+						<code>
+<span class="code_attribute">$</span>(<span class="code_tag">'#element3'</span>).<span class="code_attribute">Dragging</span>({
+	<span class="code_value">speed</span>: <span class="code_tag">600</span>
+	<span class="code_value">rotate</span>: <span class="code_tag">true</span>
+});
+						</code>
+					</pre>
 				</div>
 			</div>
 			<div id="element4">
 				<div class="content">
-					<p>default properties</p>
+					<pre>
+						<code>
+<span class="code_attribute">$</span>(<span class="code_tag">'#element4'</span>).<span class="code_attribute">Dragging</span>({
+	<span class="code_value">speed</span>: <span class="code_tag">400</span>
+	<span class="code_value">vertical</span>: <span class="code_tag">false</span>
+});
+						</code>
+					</pre>
 				</div>
 			</div>
 		</main>
@@ -132,17 +202,18 @@
 				$('header').Dragging({
 					horizontal: false
 				});
-				$('#element1').Dragging({
-					speed: 100
-				});
+				$('#element1').Dragging();				
 				$('#element2').Dragging({
-					rotate: true
+					horizontal: false
 				});
 				$('#element3').Dragging({
 					speed: 600,
-					horizontal: false
+					rotate: true
 				});
-				$('#element4').Dragging();
+				$('#element4').Dragging({
+					speed: 400,
+					vertical: false
+				});
 			} );
 		</script>
 	</body>
